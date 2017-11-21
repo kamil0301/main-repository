@@ -16,6 +16,7 @@ for i in tab:
 
 print("Sredni wiek to {} lat dla {} osob".format(sum/len(tab),len(tab)))
 
+#zadanie 3
 print("")
 print("Zadanie 3")
 
