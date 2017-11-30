@@ -35,8 +35,6 @@ class NewMethod:
             try:
                 if np.linalg.norm(self.goals[goal_no] - np.array(position)) <= self.speed:
                     goal_no += 1
-                    position, vec_vel = self.create_trajectory(self.goals[goal_no - 1], self.goals[goal_no])
-                    continue
             except:
                 break
             position, vec_vel = self.create_trajectory(position, self.goals[goal_no])
