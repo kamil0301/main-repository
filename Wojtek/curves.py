@@ -6,7 +6,7 @@ class NewMethod:
     def __init__(self, goals):
         self.traj = []
         self.start = (0, 0)
-        self.speed = 10
+        self.speed = 1
         self.traj.append(self.start)
         self.goals = goals
 
@@ -33,7 +33,7 @@ class NewMethod:
         i = 0
         while i == 0:
             try:
-                if all(self.goals[goal_no] < np.array(position)):
+                if np.linalg.norm(self.goals[goal_no] - np.array(position)) <= self.speed:
                     goal_no += 1
                     position, vec_vel = self.create_trajectory(self.goals[goal_no - 1], self.goals[goal_no])
                     continue
