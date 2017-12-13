@@ -39,4 +39,4 @@ Zarząd koła:
 
 - ogn. pchor. Arkadiusz Jelonek - prezes,
 - st. str. pchor. Hubert Zawistowski - wiceprezes,
-- st. str. pchor. Adrian Grzesik - sekretarz.
+- st. str. pchor. Wojciech Kowalski - sekretarz.
