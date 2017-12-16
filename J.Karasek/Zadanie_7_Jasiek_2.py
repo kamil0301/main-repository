@@ -1,5 +1,5 @@
 # wzór na długość wektora
-# u = sqrt(x**2 + y**2)
+# u = abs(sqrt(x**2 + y**2))
 
 t = float(input("Czas:"))
 x = 3
