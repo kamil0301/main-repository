@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 from matplotlib import patches as mpaths
+import json
 
 # program obrazujący w postaci animacji tor ruchu auta w kolejnych sekundach ruchu na podstawie położenia pocz
 # położenia końcowego i prędkości
@@ -13,9 +14,9 @@ from matplotlib import patches as mpaths
 class Pedestrian:
     def __init__(self, goals, velo):
         self.traj = []
-        self.start = (0, 0)
+        #self.start = (0, 0)
         self.speed = velo
-        self.traj.append(self.start)
+        #self.traj.append(self.start)
         self.goals = goals
 
     def create_vel_vector(self, actual, goal):
@@ -36,7 +37,7 @@ class Pedestrian:
 
     def do_it(self):
         goal_no = 0
-        position, vec_vel = self.create_trajectory(self.start, self.goals[goal_no])
+        position, vec_vel = self.create_trajectory(self.goals[goal_no], self.goals[goal_no +1])
 
         while True:             #pętla tworząca trajektorię
             try:
@@ -60,7 +61,7 @@ class Pedestrians:
         self.peds = []
 
     def add_pedestrians(self, ped):
-        self.peds.extend(ped)
+        self.peds.append(ped)
         print(self.peds)
 
     def get_trajectories(self):
@@ -98,7 +99,7 @@ class Pedestrians:
 class Animation:
     def __init__(self, pedest):
         self.fig = plt.figure()
-        self.ax = plt.axes(xlim=(-100, 100), ylim=(-100, 100))
+        self.ax = plt.axes(xlim=(0, 60), ylim=(0, 20))
         self.n_frames = 0
         self.trial = []
         self.ang = 0
@@ -106,7 +107,7 @@ class Animation:
         self.trajectory = pedest.get_chart()
         self.n_frames = len(self.trajectory)
 
-        elipses = [mpaths.Ellipse(i, width=5, height=5, angle=self.ang) for i in
+        elipses = [mpaths.Ellipse(i, width=1, height=1, angle=self.ang) for i in
                    self.trajectory[0]]      # stworzenie kształtu i przypisanie mu cech (wymiary, współ początkowych)
         [self.trial.append(self.ax.add_patch(elipses[i])) for i in range(len(elipses))]
 
@@ -126,13 +127,26 @@ class Animation:
         plt.show()
 
 
-d = Pedestrian([(10, 10), (60, 30), (9, 12)], 2)
-e = Pedestrian([(8, 11), (-5, 39), (18, 72)], 1)
-f = Pedestrian([(-5, -34), (30, 67), (-40, 97)], 2)
-g = Pedestrian([(-25, 12), (-15, -8), (6, 9)], 1)
-peds = [d, e, f, g]
+def change_data(eggman_ped):
+    vel = eggman_ped["H_SPEED"]
+    goals = []
+    goals.append(eggman_ped['ORIGIN'])
+    goals.extend(eggman_ped['ROADMAP'])
+
+    return goals, vel
+
+
+file1 = open("//home/wojtas/PythonFiles/main-repository/Python - zadania/ewakuacja2/eggman.json", 'r')
+first_floor = json.load(file1)["1"]["EVACUEES"]
+#file2 = open("C:\pliki_py\geom.json", "r")
+#obst = json.load(file2)["obstacles"]["1"]
+
+
 a = Pedestrians()
-a.add_pedestrians(peds)
+for i in first_floor:
+    print(change_data(first_floor[i]))
+    temp_ped = Pedestrian(*change_data(first_floor[i]))
+    a.add_pedestrians(temp_ped)
 
 x = Animation(a)
 x.do_animation(100)
