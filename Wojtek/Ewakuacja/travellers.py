@@ -8,7 +8,8 @@ import json
 # położenia końcowego i prędkości
 #
 #ZAD_DOM:
-#  - niech animacja kończy się gdy marsz skończy ostatni uciekinier
+#  - dodaj ściany
+#  - dodaj opóźnienia (PRE_EVACUATION)
 
 
 class Pedestrian:
