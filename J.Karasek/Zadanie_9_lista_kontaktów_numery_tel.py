@@ -13,19 +13,19 @@ while play != "zakończ":
 
   print("KONTAKTY:")
   for key in contacts:
-      print(key)
+    print(key)
   name = input("Podaj imię: ")
   if name in contacts:
     print(phone_number(name))
   else:
-      print("Nie ma takiego kontaktu.")
-  print("Jaką czynność chcesz wykonać? \nA - dodaj nowy kontakt B - usuń bieżący kontakt C - wyjdź ")
-  action = input("Czynność: ")
+    print("Nie ma takiego kontaktu.")
+    print("Jaką czynność chcesz wykonać? \nA - dodaj nowy kontakt B - usuń bieżący kontakt C - wyjdź ")
+    action = input("Czynność: ")
   if action == "A":
-      new_name = input("Wprowadź imię: ")
-      new_number = input("Wprowadź numer: ")
-      new_element = contacts[new_name] = new_number
-      play = input("Dodałeś nowy konakt,jeśli chcesz ponownie wyświetlić numery, wciśnij enter,jeśli nie, napisz 'zakończ'")
+    new_name = input("Wprowadź imię: ")
+    new_number = input("Wprowadź numer: ")
+    new_element = contacts[new_name] = new_number
+    play = input("Dodałeś nowy konakt,jeśli chcesz ponownie wyświetlić numery, wciśnij enter,jeśli nie, napisz 'zakończ'")
   elif action == "B":
     delete = input("Który kontakt chcesz usunąć? ")
     if delete in contacts:
@@ -41,4 +41,5 @@ while play != "zakończ":
 
 
 #posortować kontakty po dodaniu
+
 
