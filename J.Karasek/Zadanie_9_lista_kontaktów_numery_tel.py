@@ -8,10 +8,6 @@ contacts = {"Arek": 506234556,
 def phone_number(name):
    return("Numer telefonu to: %s" %(contacts[name]))
 
-def sort_by_key():
-    sorted_by_key_contacts = sorted(contacts.items(), key = lambda t: t[0])
-    print(sorted_by_key_contacts)
-
 play = ''
 while play != "zakończ":
 
