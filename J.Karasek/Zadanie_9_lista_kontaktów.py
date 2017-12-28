@@ -21,25 +21,27 @@ while play != "zakończ":
     print("Nie ma takiego kontaktu.")
     print("Jaką czynność chcesz wykonać? \nA - dodaj nowy kontakt B - usuń bieżący kontakt C - wyjdź ")
     action = input("Czynność: ")
-  if action == "A":
-    new_name = input("Wprowadź imię: ")
-    new_number = input("Wprowadź numer: ")
-    new_element = contacts[new_name] = new_number
-    play = input("Dodałeś nowy konakt,jeśli chcesz ponownie wyświetlić numery, wciśnij enter,jeśli nie, napisz 'zakończ'")
-  elif action == "B":
-    delete = input("Który kontakt chcesz usunąć? ")
-    if delete in contacts:
-      contacts.pop(delete)
-      play = input("Usunąłeś bieżący konakt,jeśli chcesz ponownie wyświetlić numery, wciśnij enter,jeśli nie, napisz 'zakończ'")
+    if action == "A":
+      new_name = input("Wprowadź imię: ")
+      new_number = input("Wprowadź numer: ")
+      new_element = contacts[new_name] = new_number
+      play = input("Dodałeś nowy konakt,jeśli chcesz ponownie wyświetlić numery, wciśnij enter,jeśli nie, napisz 'zakończ'")
+    elif action == "B":
+      delete = input("Który kontakt chcesz usunąć? ")
+      if delete in contacts:
+        contacts.pop(delete)
+        play = input("Usunąłeś bieżący konakt,jeśli chcesz ponownie wyświetlić numery, wciśnij enter,jeśli nie, napisz 'zakończ'")
+      else:
+        print("Nie ma takiego kontaktu.")
+        play = input("Jeśli chcesz ponownie wyświetlić numery, wciśnij enter,jeśli nie, napisz 'zakończ'")
     else:
-      print("Nie ma takiego kontaktu.")
-      play = input("Jeśli chcesz ponownie wyświetlić numery, wciśnij enter,jeśli nie, napisz 'zakończ'")
-  else:
-    play = "zakończ"
-    print("Do widzenia!")
+      play = "zakończ"
+      print("Do widzenia!")
 
 
 
 #posortować kontakty po dodaniu
+
+
 
 
