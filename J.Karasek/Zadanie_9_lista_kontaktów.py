@@ -10,7 +10,6 @@ def phone_number(name):
 
 play = ''
 while play != "zakończ":
-
   print("KONTAKTY:")
   for key in contacts:
     print(key)
@@ -41,6 +40,8 @@ while play != "zakończ":
 
 
 #posortować kontakty po dodaniu
+
+
 
 
 
