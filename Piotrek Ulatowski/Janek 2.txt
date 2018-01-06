@@ -1,0 +1,11 @@
+t = int(input("WprowadŸ czas t:"))
+u_1 = (0,0)
+
+a = 3
+b = 2
+
+u_2 = (a,b)
+
+s = a*t , b*t
+
+print("Jasiek przeszed³",s,"metrów.")
